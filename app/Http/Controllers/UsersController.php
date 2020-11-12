@@ -41,8 +41,8 @@ class UsersController extends Controller
         return User::get();
     }
 
-    public function show($user)
+    public function show($id)
     {
-        return User::findOrFail($user);
+        return User::findOrFail($id);
     }     
 }

@@ -20,5 +20,8 @@ $router->get('/', function () use ($router) {
 $router->post('/register','UsersController@register');
 
 $router->get('/users', 'UsersController@index');
-$router->get('/users/{user}', 'UsersController@show');
+$router->get('/users/{id}', 'UsersController@show');
+
+$router->get('/books', 'BooksController@index');
+$router->get('/books/{id}', 'BooksController@show');
 

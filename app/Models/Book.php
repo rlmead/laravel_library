@@ -10,7 +10,7 @@ class Book extends Model
     //
     // use HasFactory;
     protected $table = 'books';
-    protected$primaryKey = 'id';
+    protected $primaryKey = 'id';
     public $incrementing = true;
     public $timestamps = true;
 }
