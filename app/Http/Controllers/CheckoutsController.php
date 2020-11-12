@@ -14,7 +14,8 @@ class CheckoutsController extends Controller
 
     public function show($id)
     {
-        return Checkout::findOrFail($id);
+        $checkouts=Checkout::findOrFail($id);
+        return $checkouts->with('book', 'user')->get();
     }
 
     public function active()
