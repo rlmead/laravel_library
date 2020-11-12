@@ -14,12 +14,11 @@ class CheckoutsController extends Controller
 
     public function show($id)
     {
-        $checkouts=Checkout::findOrFail($id);
-        return $checkouts->with('book', 'user')->get();
+        return Checkout::findOrFail($id)->with('book', 'user')->get();
     }
 
     public function active()
     {
-        return Checkout::whereNull('return_date')->get();
+        return Checkout::whereNull('return_date')->with('book', 'user')->get();
     }
 }
