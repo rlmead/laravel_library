@@ -25,3 +25,6 @@ $router->get('/users/{id}', 'UsersController@show');
 $router->get('/books', 'BooksController@index');
 $router->get('/books/{id}', 'BooksController@show');
 
+$router->get('/checkouts', 'CheckoutsController@index');
+$router->get('/checkouts/active', 'CheckoutsController@active');
+$router->get('/checkouts/{id}', 'CheckoutsController@show');
