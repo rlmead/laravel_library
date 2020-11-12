@@ -32,6 +32,17 @@ class UsersController extends Controller
         $data['name'] =  $user->name;
 
         return response(['data' => $data, 'message' => 'Account created successfully!', 'status' => true]);
-    }  
-     
+    }
+
+    // custom functions
+    
+    public function index()
+    {
+        return User::get();
+    }
+
+    public function show($user)
+    {
+        return User::findOrFail($user);
+    }     
 }
