@@ -27,6 +27,3 @@ class Checkout extends Model
     }
 
 }
-
-
-

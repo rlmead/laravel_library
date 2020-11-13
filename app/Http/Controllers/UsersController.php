@@ -44,5 +44,14 @@ class UsersController extends Controller
     public function show($id)
     {
         return User::findOrFail($id);
-    }     
+    }
+
+    public function delete(Request $request)
+    {
+        $input = $request->all();
+        $user = User::find($input['id']);
+        $user->delete();
+
+        return response(['message' => 'User deleted successfully!', 'status' => true, 'id' => $input['id']]);
+    }
 }
