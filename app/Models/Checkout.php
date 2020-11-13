@@ -14,14 +14,16 @@ class Checkout extends Model
     public $incrementing = true;
     public $timestamps = false;
 
+    protected $with = ['book', 'user'];
+
     public function book()
     {
-        return $this->belongsTo(Book::class, 'id');
+        return $this->belongsTo(Book::class, 'ref_book_id', 'id');
     }
 
     public function user()
     {
-        return $this->belongsTo(User::class, 'id');
+        return $this->belongsTo(User::class, 'ref_user_id', 'id');
     }
 
 }

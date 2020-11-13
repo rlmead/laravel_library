@@ -13,4 +13,9 @@ class Book extends Model
     protected $primaryKey = 'id';
     public $incrementing = true;
     public $timestamps = true;
+
+    public function checkout()
+    {
+        return $this->hasMany(Checkout::class, 'id');
+    }
 }
