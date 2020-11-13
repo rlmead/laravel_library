@@ -33,6 +33,6 @@ class Checkouts extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('checkouts');
     }
 }
