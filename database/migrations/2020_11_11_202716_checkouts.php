@@ -17,15 +17,12 @@ class Checkouts extends Migration
         Schema::create('checkouts', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('ref_user_id')->unsigned();
-            $table->foreign('ref_user_id')->references('id')->on('users');
+            $table->foreign('ref_user_id')->references('id')->on('users')->onDelete('cascade');
             $table->unsignedBigInteger('ref_book_id')->unsigned();
-            $table->foreign('ref_book_id')->references('id')->on('books');
+            $table->foreign('ref_book_id')->references('id')->on('books')->onDelete('cascade');
             $table->dateTime('checkout_date');
             $table->dateTime('due_date');
-            $table->dateTime('return_date');
-            $table->integer('condition_checkout');
-            $table->integer('condition_checkin');
-            $table->integer('status');
+            $table->dateTime('return_date')->nullable();
         });
     }
 
@@ -36,6 +33,6 @@ class Checkouts extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('checkouts');
     }
 }
