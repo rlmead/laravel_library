@@ -18,6 +18,18 @@ class CheckoutsController extends Controller
         return Checkout::findOrFail($id);
     }
 
+    public function add(Request $request)
+    {
+        $input = $request->all();
+        $checkout = new Checkout();
+        $checkout->ref_user_id = $input['user'];
+        $checkout->ref_book_id = $input['book'];
+        $checkout->checkout_date = \date_create()->format('Y-m-d H:i:s');
+        $checkout->due_date = \date_create()->format('Y-m-d H:i:s');
+        $checkout->save();
+        return response(['message' => 'Book checked out successfully!', 'status' => true, 'checkout' => $checkout]);
+    }
+
     public function active()
     {
         return Checkout::whereNull('return_date')->get();
