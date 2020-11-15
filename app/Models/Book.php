@@ -16,6 +16,6 @@ class Book extends Model
 
     public function checkout()
     {
-        return $this->hasMany(Checkout::class, 'id');
+        return $this->hasMany(Checkout::class, 'ref_book_id', 'id');
     }
 }
