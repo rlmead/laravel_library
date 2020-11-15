@@ -15,7 +15,7 @@ class CheckoutsController extends Controller
 
     public function show($id)
     {
-        return Checkout::findOrFail($id);
+        return Checkout::with('book', 'user')->findOrFail($id);
     }
 
     public function add(Request $request)
@@ -32,7 +32,7 @@ class CheckoutsController extends Controller
 
     public function active()
     {
-        return Checkout::whereNull('return_date')->get();
+        return Checkout::whereNull('return_date')->with('book', 'user')->get();
     }
 
     public function return_book(Request $request)

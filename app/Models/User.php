@@ -34,6 +34,6 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
 
     public function checkout()
     {
-        return $this->hasMany(Checkout::class, 'id');
+        return $this->hasMany(Checkout::class, 'ref_user_id', 'id');
     }
 }

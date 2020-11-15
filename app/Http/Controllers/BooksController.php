@@ -14,6 +14,6 @@ class BooksController extends Controller
 
     public function show($id)
     {
-        return Book::findOrFail($id);
+        return Book::with('checkout')->findOrFail($id);
     }
 }

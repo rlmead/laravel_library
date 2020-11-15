@@ -43,7 +43,7 @@ class UsersController extends Controller
 
     public function show($id)
     {
-        return User::findOrFail($id);
+        return User::with('checkout.book')->findOrFail($id);
     }
 
     public function delete(Request $request)

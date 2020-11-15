@@ -14,7 +14,7 @@ class Checkout extends Model
     public $incrementing = true;
     public $timestamps = false;
 
-    protected $with = ['book', 'user'];
+    // protected $with = ['book', 'user'];
 
     public function book()
     {
